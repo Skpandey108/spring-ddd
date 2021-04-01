@@ -10,7 +10,6 @@ import com.rogelioorts.training.spring.ddd.exceptions.BadRequestException;
 import lombok.extern.slf4j.Slf4j;
 
 @ControllerAdvice
-@Slf4j
 public class CustomExceptionHandler {
 
 	@ExceptionHandler(BadRequestException.class)
@@ -20,7 +19,6 @@ public class CustomExceptionHandler {
 	
 	@ExceptionHandler
 	public @ResponseBody ErrorResponse defaultHandler(Exception ex) {
-		log.error("Error handled in controller: " + ex.getMessage(), ex);
 		return new ErrorResponse("INTERNAL_SERVER", ex.getMessage());
 	}
 	
